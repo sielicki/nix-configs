@@ -2,7 +2,6 @@
 with pkgs;
 let 
   my-python-packages = python-packages: with python-packages; [
-    fastapi 
     joblib
     numpy
     pandas
@@ -34,6 +33,7 @@ in
     usbutils
     git
     emacsGcc
+    vim
   ];
 
   services.emacs.enable = true;

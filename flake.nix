@@ -4,8 +4,8 @@
   inputs = {
     configs.url             = "path:configs/";
     machines.url            = "path:machines/";
-    #nixpkgs.url            = "github:nixos/nixpkgs/master";
-    nixpkgs.url             = "github:nixos/nixpkgs/1fc7212a2c3992eedc6eedf498955c321ad81cc2";
+    nixpkgs.url            = "github:nixos/nixpkgs/master";
+    #nixpkgs.url             = "github:nixos/nixpkgs/1fc7212a2c3992eedc6eedf498955c321ad81cc2";
     #nixpkgs.url             = "github:sielicki/nixpkgs/master";
     darwin.url              = "github:LnL7/nix-darwin/master";
     nixos-hardware.url     = "github:NixOS/nixos-hardware/master";
@@ -50,6 +50,7 @@
 	  inputs.nixos-wsl.nixosModules.wsl
           configs.nixosModules.my_locale
           configs.nixosModules.my_user
+          configs.nixosModules.my_wsl
 	  home-manager.nixosModules.home-manager {
               home-manager.users.sielicki = import ./home.nix { inherit inputs system pkgs; };
               home-manager.useGlobalPkgs = true;
