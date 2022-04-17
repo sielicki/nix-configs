@@ -4,7 +4,6 @@
   inputs = {
     configs.url             = "path:configs/";
     machines.url            = "path:machines/";
-    nix-configs-private.url = "path:/home/sielicki/nix/nix-configs-private/";
     #nixpkgs.url            = "github:nixos/nixpkgs/master";
     nixpkgs.url             = "github:nixos/nixpkgs/1fc7212a2c3992eedc6eedf498955c321ad81cc2";
     #nixpkgs.url             = "github:sielicki/nixpkgs/master";
@@ -13,6 +12,9 @@
     home-manager.url        = "github:nix-community/home-manager/master";
     nix-doom-emacs.url      = "github:nix-community/nix-doom-emacs/master";
     emacs-overlay.url       = "github:nix-community/emacs-overlay/master";
+    
+    #nixos-wsl.url             = "github:nix-community/nixos-wsl/main";
+    nixos-wsl.url             = "github:nzbr/nixos-wsl/mount-fix";
 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -25,9 +27,9 @@
     darwin,
     home-manager,
     machines,
-    nix-configs-private,
     nix-doom-emacs,
     nixos-hardware,
+    nixos-wsl,
     nixpkgs,
 
     ...
@@ -42,20 +44,17 @@
   in
   {
     nixosConfigurations = {
-      dogbox = nixpkgs.lib.nixosSystem {
+      dogdoor = nixpkgs.lib.nixosSystem {
         inherit system pkgs;
         modules = ([
-          machines.nixosModules.dogbox
-          configs.nixosModules.messy_all
+	  inputs.nixos-wsl.nixosModules.wsl
           configs.nixosModules.my_locale
-          configs.nixosModules.desktop_apps
-          nixos-hardware.nixosModules.lenovo-legion-15arh05h
-          nix-configs-private.nixosModules.wifi-passwords
+          configs.nixosModules.my_user
 	  home-manager.nixosModules.home-manager {
               home-manager.users.sielicki = import ./home.nix { inherit inputs system pkgs; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-            }
+          }
         ]);
       };
     };
