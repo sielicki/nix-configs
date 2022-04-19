@@ -33,7 +33,7 @@ in
     usbutils
     git
     tmux
-    emacsGcc
+    emacsNativeComp
     vim
   ];
 
