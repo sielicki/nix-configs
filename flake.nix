@@ -13,8 +13,8 @@
     nix-doom-emacs.url      = "github:nix-community/nix-doom-emacs/master";
     emacs-overlay.url       = "github:nix-community/emacs-overlay/master";
     
-    #nixos-wsl.url             = "github:nix-community/nixos-wsl/main";
-    nixos-wsl.url             = "github:nzbr/nixos-wsl/mount-fix";
+    nixos-wsl.url             = "github:nix-community/nixos-wsl/main";
+    #nixos-wsl.url             = "github:nzbr/nixos-wsl/mount-fix";
 
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     darwin.inputs.nixpkgs.follows = "nixpkgs";

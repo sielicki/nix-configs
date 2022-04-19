@@ -32,6 +32,7 @@ in
     unzip
     usbutils
     git
+    tmux
     emacsGcc
     vim
   ];
