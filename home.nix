@@ -21,27 +21,17 @@ in
   home.packages = with pkgs; [
     aria2
     bat
+    emacsNativeComp
     fzf
-    gcc
-    gnumake
+    git
     htop
     lsof
-    pciutils 
-    psmisc
     python-with-my-packages
     ripgrep
-    sqlite
+    tmux
     unzip
     usbutils
-    git
-    tmux
-    emacsNativeComp
     vim
-    clang
-    cmake
-    meson
-    boost
-    jsoncpp
   ];
 
   services.emacs.enable = true;
