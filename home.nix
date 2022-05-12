@@ -9,8 +9,10 @@ let
     requests
     typer
     youtube-dl
+    fastapi
+    black
   ];
-  python-with-my-packages = python3.withPackages my-python-packages;
+  python-with-my-packages = python311.withPackages my-python-packages;
 in
 {
   imports = [
@@ -35,6 +37,11 @@ in
     tmux
     emacsNativeComp
     vim
+    clang
+    cmake
+    meson
+    boost
+    jsoncpp
   ];
 
   services.emacs.enable = true;
